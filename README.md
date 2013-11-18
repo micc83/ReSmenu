@@ -1,7 +1,7 @@
 jQuery ReSmenu
 =======
 
-**jQuery ReSmenu** is a very simple and lightweight (~1Kb) jQuery plugin that collapse ul menus into selects on responsive layouts.
+**jQuery ReSmenu** is a very simple and lightweight (~1Kb) jQuery plugin that collapse ul menus into selects on responsive layouts. You can find some examples in the included demo or [here](http://codeb.it/resmenu/).
 
 To use it you just have to include jQuery and a copy of the plugin in your head or footer:
 
