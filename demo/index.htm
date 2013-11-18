@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>jQuery ReSmenu - Select based responsive menu</title>
+    <link rel="stylesheet" type="text/css" media="all" href="style.css" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../jquery.resmenu.js"></script>
+    <script>
+    $(window).ready(function () {
+        $('#menu1').ReSmenu();
+        $('#menu2').ReSmenu({ maxWidth: 720 });
+        $('#menu3').ReSmenu({ textBefore: 'Choose:' });
+        $('#menu4').ReSmenu({ selectOption: 'Choose:' });
+    });
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+        
+        <h1>jQuery ReSmenu <span>v0.1.0</span></h1>
+        
+        <p><strong>jQuery ReSmenu</strong> is a very simple and lightweight (~1Kb) jQuery plugin that collapse ul menus into selects on responsive layouts.</p>
+        
+        <a href="" class="download_button">Download it on GitHub</a>
+        
+        <p>To use it you just have to include jQuery and a copy of the plugin in your head or footer:</p>
+        <pre>&#x3C;script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"&#x3E;&#x3C;/script&#x3E;
+&#x3C;script type="text/javascript" src="jquery.resmenu.min.js"&#x3E;&#x3C;/script&#x3E;</pre>
+        <p>Let's say this is your menu:</p>
+        <pre>
+&#x3C;&#x64;&#x69;&#x76;&#x20;&#x63;&#x6C;&#x61;&#x73;&#x73;&#x3D;&#x22;&#x6D;&#x65;&#x6E;&#x75;&#x5F;&#x63;&#x6F;&#x6E;&#x74;&#x61;&#x69;&#x6E;&#x65;&#x72;&#x22;&#x3E;
+&#x20;&#x20;&#x20;&#x20;&#x3C;&#x75;&#x6C;&#x20;&#x63;&#x6C;&#x61;&#x73;&#x73;&#x3D;&#x22;&#x74;&#x6F;&#x72;&#x65;&#x73;&#x70;&#x6F;&#x6E;&#x73;&#x69;&#x76;&#x65;&#x22;&#x3E;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3C;&#x6C;&#x69;&#x3E;&#x3C;&#x61;&#x20;&#x68;&#x72;&#x65;&#x66;&#x3D;&#x22;&#x2F;&#x22;&#x3E;&#x48;&#x6F;&#x6D;&#x65;&#x3C;&#x2F;&#x61;&#x3E;&#x3C;&#x2F;&#x6C;&#x69;&#x3E;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3C;&#x6C;&#x69;&#x20;&#x63;&#x6C;&#x61;&#x73;&#x73;&#x3D;&#x22;&#x63;&#x75;&#x72;&#x72;&#x65;&#x6E;&#x74;&#x2D;&#x6D;&#x65;&#x6E;&#x75;&#x2D;&#x69;&#x74;&#x65;&#x6D;&#x22;&#x3E;&#x3C;&#x61;&#x20;&#x68;&#x72;&#x65;&#x66;&#x3D;&#x22;&#x74;&#x65;&#x73;&#x74;&#x2E;&#x68;&#x74;&#x6D;&#x22;&#x3E;&#x4C;&#x69;&#x6E;&#x6B;&#x3C;&#x2F;&#x61;&#x3E;&#x3C;&#x2F;&#x6C;&#x69;&#x3E;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3C;&#x6C;&#x69;&#x3E;&#x3C;&#x61;&#x20;&#x68;&#x72;&#x65;&#x66;&#x3D;&#x22;&#x74;&#x65;&#x73;&#x74;&#x2E;&#x68;&#x74;&#x6D;&#x22;&#x3E;&#x4C;&#x69;&#x6E;&#x6B;&#x20;&#x32;&#x3C;&#x2F;&#x61;&#x3E;&#x3C;&#x2F;&#x6C;&#x69;&#x3E;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3C;&#x6C;&#x69;&#x3E;&#x3C;&#x61;&#x20;&#x68;&#x72;&#x65;&#x66;&#x3D;&#x22;&#x74;&#x65;&#x73;&#x74;&#x2E;&#x68;&#x74;&#x6D;&#x22;&#x3E;&#x4C;&#x69;&#x6E;&#x6B;&#x20;&#x33;&#x3C;&#x2F;&#x61;&#x3E;&#x3C;&#x2F;&#x6C;&#x69;&#x3E;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x3C;&#x6C;&#x69;&#x3E;&#x3C;&#x61;&#x20;&#x68;&#x72;&#x65;&#x66;&#x3D;&#x22;&#x74;&#x65;&#x73;&#x74;&#x2E;&#x68;&#x74;&#x6D;&#x22;&#x3E;&#x4C;&#x69;&#x6E;&#x6B;&#x20;&#x34;&#x3C;&#x2F;&#x61;&#x3E;&#x3C;&#x2F;&#x6C;&#x69;&#x3E;
+&#x20;&#x20;&#x20;&#x20;&#x3C;&#x2F;&#x75;&#x6C;&#x3E;
+&#x3C;&#x2F;&#x64;&#x69;&#x76;&#x3E;</pre>
+        <p>Now the only thing to do is to trigger the menu with:</p>
+        <pre>$(window).ready(function () {
+    $('.toresponsive').ReSmenu();
+});</pre>
+        <p>If you need more control here's the plugin settings:</p>
+        <pre>$('.toresponsive').ReSmenu({
+    menuClass:    'responsive_menu',   // Responsive menu class
+    selectId:     'resmenu_',          // select ID
+    textBefore:   false,               // Text to add before the mobile menu
+    selectOption: false,               // First select option
+    activeClass:  'current-menu-item', // Active menu li class
+    maxWidth:     480                  // Size to which the menu is responsive
+});</pre>
+        
+        <h2>Some examples</h2>
+        
+        <!-- Menu 1 -->
+        <span class="title">Example A - No options</span>
+        <div class="menu_container">
+            <ul class="toresponsive" id="menu1">
+                <li><a href="/">Home</a></li>
+                <li class="current-menu-item"><a href="htest.htm">Link</a></li>
+                <li>
+                    <a href="">Submenu no url</a>
+                    <ul>
+                        <li><a href="#">Submenu with #</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="test.htm">Link</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="test.htm">Submenu with url</a>
+                    <ul>
+                        <li><a href="test.htm">Link</a></li>
+                        <li><a>Submenu no href</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="">Link no url</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <pre>$('#menu1').ReSmenu();</pre>
+        
+        <!-- Menu 2 -->
+        <span class="title">Example B - Collapse at 720px wide</span>
+        <div class="menu_container">
+            <ul class="toresponsive" id="menu2">
+                <li><a href="/">Home</a></li>
+                <li class="current-menu-item"><a href="htest.htm">Link</a></li>
+                <li>
+                    <a href="">Submenu no url</a>
+                    <ul>
+                        <li><a href="#">Submenu with #</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="test.htm">Link</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="test.htm">Submenu with url</a>
+                    <ul>
+                        <li><a href="test.htm">Link</a></li>
+                        <li><a>Submenu no href</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="">Link no url</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <pre>$('#menu2').ReSmenu({
+    maxWidth: 720
+});</pre>
+        
+        <!-- Menu 3 -->
+        <span class="title">Example C - Menu with label</span>
+        <div class="menu_container nofull">
+            <ul class="toresponsive" id="menu3">
+                <li><a href="/">Home</a></li>
+                <li class="current-menu-item"><a href="htest.htm">Link</a></li>
+                <li>
+                    <a href="">Submenu no url</a>
+                    <ul>
+                        <li><a href="#">Submenu with #</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="test.htm">Link</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="test.htm">Submenu with url</a>
+                    <ul>
+                        <li><a href="test.htm">Link</a></li>
+                        <li><a>Submenu no href</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="">Link no url</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <pre>$('#menu3').ReSmenu({
+    textBefore: 'Choose:'
+});</pre>
+
+        <!-- Menu 4 -->
+        <span class="title">Example D - Menu with first option</span>
+        <p class="note">The active li won't be highlighted</p>
+        <div class="menu_container">
+            <ul class="toresponsive" id="menu4">
+                <li><a href="/">Home</a></li>
+                <li class="current-menu-item"><a href="htest.htm">Link</a></li>
+                <li>
+                    <a href="">Submenu no url</a>
+                    <ul>
+                        <li><a href="#">Submenu with #</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="test.htm">Link</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="test.htm">Submenu with url</a>
+                    <ul>
+                        <li><a href="test.htm">Link</a></li>
+                        <li><a>Submenu no href</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="">Link no url</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <pre>$('#menu4').ReSmenu({
+    selectOption: 'Choose:'
+});</pre>
+        
+        <h2>Some css</h2>
+        
+        <p><strong>ReSmenu</strong> runs out of the box but if you want to style your select to better fit the container you can take advantage of the short css style taken from <a href="http://getbootstrap.com/" target="_blank">twitter bootstrap</a>:</p>
+        <pre>.responsive_menu select {
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: rgb(85, 85, 85);
+    vertical-align: middle;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    border: none;
+}</pre>
+        
+        <h2>Credits and contacts</h2>
+        
+        <p><strong>ReSmenu</strong> has been made by <a href="http://codeb.it" target="_blank">me</a>. You can contact me at <a href="mailto:micc83@gmail.com">micc83@gmail.com</a> or <a href="https://twitter.com/Micc1983" target="_blank">twitter</a> for any issue or feauture request.</p>
+        
+    </div>
+        
+        
+</body>
+</html>
+
+ 
