@@ -20,6 +20,7 @@
             $(element).children('li').each(function () {
 
                 var url = $(this).children('a').attr('href');
+                
                 if (typeof url === 'undefined' || url === false || url == '#' || url.length == 0 ) {
                     url = '';
                 }
@@ -53,7 +54,7 @@
 
             // Bind change to select
             $(select).bind('change', function () {
-                if ($(this).val().length > 1) {
+                if ($(this).val().length > 0) {
                     window.location.href = $(this).val();
                 }
             });
