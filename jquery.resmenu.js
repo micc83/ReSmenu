@@ -1,4 +1,4 @@
-/*! ReSmenu v0.1 by Alessandro Benoit */
+/*! ReSmenu v0.1.1 by Alessandro Benoit */
 (function ($, window, i) {
     $.fn.ReSmenu = function (options) {
 
