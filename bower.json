@@ -1,0 +1,19 @@
+{
+    "name": "ReSmenu",
+    "version": "0.1.1",
+    "description": "jQuery plugin that collapse ul menus into selects on responsive layouts.",
+    "keywords": [
+        "menu",
+        "responsive"
+    ],
+    "main": [
+        "jquery.resmenu.min.js"
+    ],
+    "ignore": [
+      "demo"
+    ],
+    "dependencies": {
+        "jquery": ">=1.6.4"
+    },
+    "license": "MIT"
+}

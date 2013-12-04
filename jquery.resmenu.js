@@ -1,5 +1,8 @@
-/*! ReSmenu v0.1 by Alessandro Benoit */
+/*! ReSmenu v0.1.1 by Alessandro Benoit */
 (function ($, window, i) {
+
+    'use strict';
+
     $.fn.ReSmenu = function (options) {
 
         // Settings
@@ -15,13 +18,13 @@
         // Convert the menu to select
         function build_menu(element, select, add) {
 
-            add = typeof add !== 'undefined' ? add : '';
+            add = add || '';
 
             $(element).children('li').each(function () {
 
                 var url = $(this).children('a').attr('href');
-                
-                if (typeof url === 'undefined' || url === false || url == '#' || url.length == 0 ) {
+
+                if (url === undefined || url === false || url === '#' || url.length === 0) {
                     url = '';
                 }
 
@@ -29,7 +32,7 @@
                     value: url,
                     html: add + $(this).children('a').text(),
                     disabled: (!url) ? true : false,
-                    selected: ($(this).hasClass(s.activeClass) && !s.selectOption ) ? true : false
+                    selected: ($(this).hasClass(s.activeClass) && !s.selectOption) ? true : false
                 }).appendTo(select);
 
                 // Submenu
@@ -46,11 +49,10 @@
 
             var responsive_menu = $('<div/>', {
                 class: s.menuClass
-            }).appendTo($(element).parent());
-
-            var select = $('<select/>', {
-                id: s.selectId + i
-            }).appendTo(responsive_menu);
+            }).appendTo($(element).parent()),
+                select = $('<select/>', {
+                    id: s.selectId + i
+                }).appendTo(responsive_menu);
 
             // Bind change to select
             $(select).bind('change', function () {
@@ -88,12 +90,12 @@
             var element = $(this),
                 responsive_menu;
 
-            i++;
+            i += 1;
 
             // The responsive menu is built if the page size is or goes under maxWidth
             function handle_menu() {
 
-                if ($(window).width() > parseInt(s.maxWidth)) {
+                if ($(window).width() > parseInt(s.maxWidth, 10)) {
 
                     $(element).show();
 
