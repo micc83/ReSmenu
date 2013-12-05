@@ -8,7 +8,7 @@
         // Settings
         var s = $.extend({
             menuClass: 'responsive_menu', // Responsive menu class
-            selectId: 'resmenu',
+            selectId: 'resmenu', // Id of the select
             textBefore: false, // Text to add before the mobile menu
             activePrepend: false, // Prepend a text to active element
             selectOption: false, // First select option
