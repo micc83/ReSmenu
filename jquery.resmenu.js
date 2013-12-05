@@ -10,6 +10,7 @@
             menuClass: 'responsive_menu', // Responsive menu class
             selectId: 'resmenu',
             textBefore: false, // Text to add before the mobile menu
+            activePrepend: false, // Prepend a text to active element
             selectOption: false, // First select option
             activeClass: 'current-menu-item', // Active menu li class
             maxWidth: 480 // Size to which the menu is responsive
@@ -79,6 +80,25 @@
 
             // Build select the menu
             build_menu($(element), select);
+
+            if (s.activePrepend) {
+
+                var selected_text = $(select).children("option:selected").text(),
+                    current_text = s.activePrepend + ' ' + selected_text.replace(/\u00a0/g, "");
+
+                $(select).children("option:selected").text(current_text);
+
+                // Bind change to select
+                $(select).focus(function () {
+                    $(this).children("option:selected").text(selected_text);
+                });
+
+                // Bind change to select
+                $(select).blur(function () {
+                    $(this).children("option:selected").text(current_text);
+                });
+
+            }
 
             return responsive_menu;
 
