@@ -29,12 +29,13 @@ Now the only thing to do is to trigger the menu with:
 If you need more control here's the plugin settings:
 
     $('.toresponsive').ReSmenu({
-        menuClass:    'responsive_menu',   // Responsive menu class
-        selectId:     'resmenu',          // select ID
-        textBefore:   false,               // Text to add before the mobile menu
-        selectOption: false,               // First select option
-        activeClass:  'current-menu-item', // Active menu li class
-        maxWidth:     480                  // Size to which the menu is responsive
+        menuClass:     'responsive_menu',   // Responsive menu class
+        selectId:      'resmenu',           // select ID
+        textBefore:    false,               // Text to add before the mobile menu
+        activePrepend: false,               // Prepend a text to active element
+        selectOption:  false,               // First select option
+        activeClass:   'current-menu-item', // Active menu li class
+        maxWidth:      480                  // Size to which the menu is responsive
     });
     
 ## Let's style your select
