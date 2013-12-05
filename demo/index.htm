@@ -203,6 +203,44 @@
         <pre>$('#menu4').ReSmenu({
     selectOption: 'Choose:'
 });</pre>
+
+        <!-- Menu 5 -->
+        <span class="title">Example E - Menu with text prepended to the active element</span>
+        <p class="note">When clicking on the select the prepended text will disappear</p>
+        <div class="menu_container">
+            <ul class="toresponsive" id="menu5">
+                <li><a href="/">Home</a></li>
+                <li><a href="htest.htm">Link</a></li>
+                <li>
+                    <a href="">Submenu no url</a>
+                    <ul>
+                        <li><a href="#">Submenu with #</a>
+                            <ul>
+                                <li class="current-menu-item"><a href="test.htm">Link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="test.htm">Link</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="test.htm">Submenu with url</a>
+                    <ul>
+                        <li><a href="test.htm">Link</a></li>
+                        <li><a>Submenu no href</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="">Link no url</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <pre>$('#menu5').ReSmenu({
+    activePrepend: 'Current:'
+});</pre>		
         
         <h2>Some css</h2>
         
