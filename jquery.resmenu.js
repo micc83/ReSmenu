@@ -13,7 +13,8 @@
             activePrepend: false, // Prepend a text to active element
             selectOption: false, // First select option
             activeClass: 'current-menu-item', // Active menu li class
-            maxWidth: 480 // Size to which the menu is responsive
+            maxWidth: 480, // Size to which the menu is responsive
+            whenBuilt: function () {}
         }, options);
 
         // Convert the menu to select
@@ -81,7 +82,9 @@
             // Build select the menu
             build_menu($(element), select);
 
+            // Prepend the active text to current selected option
             if (s.activePrepend) {
+                $(select).children("option:selected").text(s.activePrepend + ' ' + $(select).children("option:selected").text().replace(/\u00a0/g, ""));
             }
 
             return responsive_menu;
@@ -115,6 +118,7 @@
                         $(responsive_menu).show();
                     } else {
                         responsive_menu = create_responsive_menus(element, i);
+                        s.whenBuilt(responsive_menu);
                     }
 
                 }
