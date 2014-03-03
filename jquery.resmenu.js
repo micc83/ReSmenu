@@ -82,22 +82,6 @@
             build_menu($(element), select);
 
             if (s.activePrepend) {
-
-                var selected_text = $(select).children("option:selected").text(),
-                    current_text = s.activePrepend + ' ' + selected_text.replace(/\u00a0/g, "");
-
-                $(select).children("option:selected").text(current_text);
-
-                // Bind change to select
-                $(select).focus(function () {
-                    $(this).children("option:selected").text(selected_text);
-                });
-
-                // Bind change to select
-                $(select).blur(function () {
-                    $(this).children("option:selected").text(current_text);
-                });
-
             }
 
             return responsive_menu;
