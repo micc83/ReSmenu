@@ -14,6 +14,12 @@
         $('#menu3').ReSmenu({ textBefore: 'Choose:' });
         $('#menu4').ReSmenu({ selectOption: 'Choose:' });
         $('#menu5').ReSmenu({ activePrepend: 'Current:' });
+        $('#menu6').ReSmenu({ 
+        	whenBuilt : function (menu) {
+        		var options = $(menu).find('option');
+        		$( options[11] ).insertBefore( $( options[0] ) );
+        	}
+        });
     });
     </script>
 </head>
@@ -53,7 +59,10 @@
     activePrepend: false,               // Prepend a text to active element
     selectOption:  false,               // First select option
     activeClass:   'current-menu-item', // Active menu li class
-    maxWidth:      480                  // Size to which the menu is responsive
+    maxWidth:      480,                 // Size to which the menu is responsive
+    whenBuilt:     function (menu) {
+        // Do something after menu is built...
+    }
 });</pre>
         
         <h2>Some examples</h2>
@@ -207,7 +216,7 @@
 
         <!-- Menu 5 -->
         <span class="title">Example E - Menu with text prepended to the active element</span>
-        <p class="note">When clicking on the select the prepended text will disappear</p>
+
         <div class="menu_container">
             <ul class="toresponsive" id="menu5">
                 <li><a href="/">Home</a></li>
@@ -242,6 +251,47 @@
         <pre>$('#menu5').ReSmenu({
     activePrepend: 'Current:'
 });</pre>		
+        
+        <!-- Menu 6 -->
+        <span class="title">Example F - Change menu order on mobile</span>
+        <p class="note">Change the order only on mobile menu</p>
+        <div class="menu_container">
+            <ul class="toresponsive" id="menu6">
+                <li><a href="/">Home</a></li>
+                <li><a href="htest.htm">Link</a></li>
+                <li>
+                    <a href="">Submenu no url</a>
+                    <ul>
+                        <li><a href="#">Submenu with #</a>
+                            <ul>
+                                <li class="current-menu-item"><a href="test.htm">A Link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="test.htm">Link</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="test.htm">Submenu with url</a>
+                    <ul>
+                        <li><a href="test.htm">Link</a></li>
+                        <li><a>Submenu no href</a>
+                            <ul>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="test.htm">Link</a></li>
+                                <li><a href="">Link no url</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+<pre>$('#menu6').ReSmenu({ 
+    whenBuilt : function (menu) {
+        var options = $(menu).find('option');
+        $(options[11]).insertBefore($(options[0]));
+    }
+});</pre>
         
         <h2>Some css</h2>
         
