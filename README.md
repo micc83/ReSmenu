@@ -35,7 +35,10 @@ If you need more control here's the plugin settings:
         activePrepend: false,               // Prepend a text to active element
         selectOption:  false,               // First select option
         activeClass:   'current-menu-item', // Active menu li class
-        maxWidth:      480                  // Size to which the menu is responsive
+        maxWidth:      480,                 // Size to which the menu is responsive
+        whenBuilt:     function (menu) {
+            // Do something after menu is built...
+        }
     });
     
 ## Let's style your select
