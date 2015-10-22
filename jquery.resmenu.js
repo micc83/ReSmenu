@@ -12,7 +12,7 @@
             textBefore: false, // Text to add before the mobile menu
             selectOption: false, // First select option
             activeClass: 'current-menu-item', // Active menu li class
-            maxWidth: 480 // Size to which the menu is responsive
+            maxWidth: 480 // Size to which the menu is responsive, false if you use media queries
         }, options);
 
         // Convert the menu to select
@@ -98,32 +98,31 @@
                 if ($(window).width() > parseInt(s.maxWidth, 10)) {
 
                     $(element).show();
-
-                    if (responsive_menu) {
-                        $(responsive_menu).hide();
-                    }
+                    $(responsive_menu).hide()
 
                 } else {
 
                     $(element).hide();
-
-                    if (responsive_menu) {
-                        $(responsive_menu).show();
-                    } else {
-                        responsive_menu = create_responsive_menus(element, i);
-                    }
+                    $(responsive_menu).show();
 
                 }
 
             }
 
-            // At first
-            handle_menu();
 
-            // Then at the resizing of the page
-            $(window).resize(function () {
+            responsive_menu = create_responsive_menus(element, i);
+
+            if (false !== s.maxWidth) {
+
+                // At first
                 handle_menu();
-            });
+
+                // Then at the resizing of the page
+                $(window).resize(function () {
+                    handle_menu();
+                });
+
+            }
 
         });
 
