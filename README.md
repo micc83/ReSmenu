@@ -30,11 +30,13 @@ If you need more control here's the plugin settings:
 
     $('.toresponsive').ReSmenu({
         menuClass:    'responsive_menu',   // Responsive menu class
-        selectId:     'resmenu',          // select ID
+        selectId:     'resmenu',           // select ID
         textBefore:   false,               // Text to add before the mobile menu
         selectOption: false,               // First select option
         activeClass:  'current-menu-item', // Active menu li class
-        maxWidth:     480                  // Size to which the menu is responsive
+        maxWidth:     480,                 // Size to which the menu is responsive
+        submenuElement: 'ul',              // Submenu-Element you use
+        submenuPlaceholder: '&nbsp;&nbsp;' // Placeholder befor Submenu
     });
     
 ## Let's style your select
