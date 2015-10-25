@@ -1,4 +1,4 @@
-/*! ReSmenu v0.1.1 by Alessandro Benoit */
+/*! ReSmenu v0.1.2 by Alessandro Benoit */
 (function ($, window, i) {
 
     'use strict';
@@ -12,7 +12,10 @@
             textBefore: false, // Text to add before the mobile menu
             selectOption: false, // First select option
             activeClass: 'current-menu-item', // Active menu li class
-            maxWidth: 480 // Size to which the menu is responsive
+            maxWidth: 480, // Size to which the menu is responsive
+            submenuElement: 'ul', // Submenu-Element you use
+            submenuPlaceholder: '&nbsp;&nbsp;' // Placeholder befor Submenu
+            
         }, options);
 
         // Convert the menu to select
@@ -36,8 +39,8 @@
                 }).appendTo(select);
 
                 // Submenu
-                if ($(this).children('ul').length > 0) {
-                    build_menu($(this).children('ul'), select, add + "&nbsp;&nbsp;");
+                if ($(this).children(s.submenuElement).length > 0) {
+                    build_menu($(this).children(s.submenuElement), select, add + s.submenuPlaceholder);
                 }
 
             });
