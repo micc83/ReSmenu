@@ -2,5 +2,4 @@
 
 title: jQuery ResMenu
 email: micc83@gmail.com
-baseurl: "docs" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+source: "/docs"
