@@ -34,7 +34,7 @@ If you need more control here's the plugin settings:
         textBefore:   false,               // Text to add before the mobile menu
         selectOption: false,               // First select option
         activeClass:  'current-menu-item', // Active menu li class
-        maxWidth:     480                  // Size to which the menu is responsive
+        maxWidth:     480                  // Size to which the menu is responsive, false if you handle showing/hiding yourself with media quieries
     });
     
 ## Let's style your select
